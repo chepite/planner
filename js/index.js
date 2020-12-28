@@ -5,10 +5,9 @@
   var config = {
     apiKey: "AIzaSyCj1mCRNiAWSbfMTiqLdgcYyZJJt8xPS3Y",
     authDomain: "planner-e36e7.firebaseapp.com",
-    databaseURL: "https://planner-e36e7-default-rtdb.europe-west1.firebasedatabase.app",
+    databaseURL: "https://planner-e36e7-default-rtdb.europe-west1.firebasedatabase.app/",
     storageBucket: "planner-e36e7.appspot.com"
   };
-  firebase.initializeApp(config);
 
   // Get a reference to the database service
   var database = firebase.database();
@@ -55,7 +54,7 @@ function waterplus(e) {
         }
     }*/
 
-    
+
     //display new data on website
     $watervalue.textContent = value.toString();
 }
@@ -63,30 +62,32 @@ function loadData(e) {
     e.preventDefault();
     const $date = document.querySelector(`.datePicker`);
     let datum = $date.value.toString();
-    const $watervalue = document.querySelector(`#waterTeller`);
-    //add value to database
-    /*for (i = 0; i < data.length; i++) {
-        if (data[i].date == datum) {
-            $watervalue.textContent = data[i].watervalue.toString();
-        }
-        else{
-            $watervalue.textContent = `0`;
-        }
-    }*/
+    const $p = document.createElement(`p`);
+    const $location= document.querySelector(`.test`);
+    
+    let actualData;
+    let dataURL= firebase.database().ref('/Days/' + `testday` + `/Date`);
+   dataURL.on(`value`, (snapshot)=>{
+       const data= snapshot.val().toString();
+        actualData = data;
+        console.log(actualData);
+   })
 
+   
 
+    
+   /* $p.textContent = data.toString();
+    $location.appendChild($p);*/
     //display new data on website
 
 }
 
 const init = () => {
     //date
-    const $date = document.querySelector(`.datePicker`);
-
-    $date.addEventListener(`change`, loadData);
+    
     //buttons shit
     const $minbutton = document.querySelector(`#min`);
-    $minbutton.addEventListener(`click`, watermin);
+    $minbutton.addEventListener(`click`, loadData) /*watermin*/;
     const $plusbutton = document.querySelector(`#plus`);
     $plusbutton.addEventListener(`click`, waterplus);
 }
