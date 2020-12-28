@@ -76,18 +76,19 @@ function loadData(e) {
    
 
     
-   /* $p.textContent = data.toString();
-    $location.appendChild($p);*/
+    $p.textContent = actualData;
+    $location.appendChild($p);
     //display new data on website
 
 }
 
 const init = () => {
-    //date
+    //load
+    
     
     //buttons shit
     const $minbutton = document.querySelector(`#min`);
-    $minbutton.addEventListener(`click`, loadData) /*watermin*/;
+    $minbutton.addEventListener(`click`, loadData) /*waterMin was og*/;
     const $plusbutton = document.querySelector(`#plus`);
     $plusbutton.addEventListener(`click`, waterplus);
 }
