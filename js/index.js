@@ -107,22 +107,43 @@ function loadData(e) {
         //als nog niet bestaat maak nieuw record aan met water 0
         if (data == null) {
             var updates = {};
-            updates[`/Meals/${datum}/ont`] = `spacefiller`;
-            $li.textContent = `spacefiller`;
-            $locationOverviewOntbijt.appendChild($li);
+            updates[`/Meals/${datum}/ont`] = ``;
             return firebase.database().ref().update(updates);
         }
         else {
             //als record al bestaat pass de data gewoon
             let dataArray = data.toString().split(`,`);
             console.log(dataArray);
-            for (i = 0; i < dataArray.lenght; i++) {
+            dataArray.forEach(element => {
                 const $li = document.createElement(`li`);
                 const $p = document.createElement(`p`);
-                $p.innerHTML = dataArray[i];
+                $p.textContent = element;
                 $li.appendChild($p);
                 $locationOverviewOntbijt.appendChild($li);
-            }
+            });
+        }
+    });
+    const $locationOverviewTs1 = document.querySelector(`.overviewTs1`);
+    let overviewTs1URL = firebase.database().ref(`/Meals/${datum}/ts1`);
+    overviewTs1URL.on(`value`, (snapshot) => {
+        const data = snapshot.val();
+        //als nog niet bestaat maak nieuw record aan met water 0
+        if (data == null) {
+            var updates = {};
+            updates[`/Meals/${datum}/ts1`] = ``;
+            return firebase.database().ref().update(updates);
+        }
+        else {
+            //als record al bestaat pass de data gewoon
+            let dataArray = data.toString().split(`,`);
+            console.log(dataArray);
+            dataArray.forEach(element => {
+                const $li = document.createElement(`li`);
+                const $p = document.createElement(`p`);
+                $p.textContent = element;
+                $li.appendChild($p);
+                $locationOverviewTs1.appendChild($li);
+            });
         }
     });
 

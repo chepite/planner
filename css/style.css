@@ -20,3 +20,8 @@ h2{
 .form{
     margin: 1rem;
 }
+ul{
+    margin:1rem;
+    list-style-type: disc;
+    padding: 1rem;
+}
