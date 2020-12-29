@@ -47,3 +47,21 @@ ul{
 .button{
     padding: 1rem;
 }
+.description{
+    padding: .5rem;
+}
+input[type="submit"]{
+    padding: .5rem;
+    margin-left: 1rem;
+}
+.dateDiv{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
+}
+#load{
+    height: 3rem;
+    width: 20rem;
+}

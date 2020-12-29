@@ -3,7 +3,7 @@ function login() {
     const password = document.getElementById("password").value;
     firebase.auth().signInWithEmailAndPassword(user, password)
         .then((user) => {
-            window.open(`../index.html`, `_self`);
+            window.open(`../app.html`, `_self`);
         })
         .catch((error) => {
             var errorCode = error.code;
