@@ -38,6 +38,7 @@ function watermin(e) {
     return firebase.database().ref().update(updates);
 
 }
+//wanneer je op waterplus drukt komen er objecten dit werkt beter dan de load --> waarom? ik denk door update
 function waterplus(e) {
     e.preventDefault();
     const $date = document.querySelector(`.datePicker`);
@@ -55,10 +56,9 @@ function waterplus(e) {
     var updates = {};
     updates[`/Days/${datum}/waterAmount`] = amount;
     return firebase.database().ref().update(updates);
+
 }
-/*firebase.database().ref(`/Days/${datum}/waterAmount`).set({
-    waterAmount: amount
-});*/
+
 
 
 function loadData(e) {
@@ -69,13 +69,26 @@ function loadData(e) {
     const $location = document.querySelector(`#waterTeller`);
     //gets amount of water
     let amount;
-    let amountURL = firebase.database().ref(`/Days/${datum}/waterAmount`); /*later testday veranderen met datum uit datepicker*/
+    let amountURL = firebase.database().ref(`/Days/${datum}/waterAmount`);
+
+    /*later testday veranderen met datum uit datepicker*/
+
     amountURL.on(`value`, (snapshot) => {
-        const data = snapshot.val().toString();
-        amount = data;
-        console.log(amount);
-        $location.textContent = amount.toString();
-    })
+        const data = snapshot.val();
+        //als nog niet bestaat maak nieuw record aan met water 0
+        if (data == null) {
+            var updates = {};
+            updates[`/Days/${datum}/waterAmount`] = 0;
+            $location.textContent = 0;
+            return firebase.database().ref().update(updates);
+
+        }
+        else {
+            //als record al bestaat pass de data gewoon
+            amount = data;
+            $location.textContent = amount.toString();
+        }
+    });
     //display new data on website
 }
 
