@@ -8,8 +8,6 @@ var config = {
 var database = firebase.database();
 //end database shit
 
-
-
 /*structure = {date:2020-05-18,
 water: int} 
 
@@ -24,15 +22,98 @@ Meals:{  selector van een meal is de data
     }
 }
 */
-function handlesubmitform(e) {
+//splits de submitforms op omdat je anders elke keer de onaangepaste data ook weer update wat data kost ==> limited server data met free plan
+function handlesubmitformOntbijt(e) {
     e.preventDefault();
-    //wat moet submit doen:
-    /*
-    1. de data weergeven in een lijst die je kan editen
-    2. de data updaten in de databse
-    3. (optioneel) de data ondereen weergeven in een tabel
-    */
+    const $date = document.querySelector(`.datePicker`);
+    let datum = $date.value.toString();
+    //fetch previous data
+        const $locationOverviewOntbijt = document.querySelector(`.overviewOntbijt`);
+        $locationOverviewOntbijt.innerHTML = "";
+        let overviewOntbijtURL = firebase.database().ref(`/Meals/${datum}/ont`);
+        overviewOntbijtURL.once(`value`, (snapshot) => {
+            const data = snapshot.val();
+            //als record al bestaat pass de data gewoon
+            console.log(data);
+            let ontValue = document.getElementById("descriptionOntbijt").value;
+            let newData = `${data},${ontValue}`;
+            console.log(newData);
+            var updates = {};
+            updates[`/Meals/${datum}/ont`] = newData;
+            return firebase.database().ref().update(updates);
 
+        });
+}
+function handlesubmitformts1(e){
+    e.preventDefault();
+    const $date = document.querySelector(`.datePicker`);
+    let datum = $date.value.toString();
+    //fetch previous data
+    const $locationOverviewOntbijt = document.querySelector(`.overviewTs1`);
+    $locationOverviewOntbijt.innerHTML = "";
+    let overviewts1URL = firebase.database().ref(`/Meals/${datum}/ts1`);
+    overviewts1URL.once(`value`, (snapshot) => {
+        const data = snapshot.val();
+        //als record al bestaat pass de data gewoon
+        console.log(data);
+        let ts1Value = document.getElementById("descriptionTs1").value;
+        let newData = `${data},${ts1Value}`;
+        console.log(newData);
+        var updates = {};
+        updates[`/Meals/${datum}/ts1`] = newData;
+        return firebase.database().ref().update(updates);
+
+    });
+}
+function handlesubmitformmid(e) {
+    e.preventDefault();
+
+}
+function handlesubmitformts2(e) {
+    e.preventDefault();
+    const $date = document.querySelector(`.datePicker`);
+    let datum = $date.value.toString();
+    //fetch previous data
+    const $locationOverviewOntbijt = document.querySelector(`.overviewTs2`);
+    $locationOverviewOntbijt.innerHTML = "";
+    let overviewts2URL = firebase.database().ref(`/Meals/${datum}/ts2`);
+    overviewts2URL.once(`value`, (snapshot) => {
+        const data = snapshot.val();
+        //als record al bestaat pass de data gewoon
+        console.log(data);
+        let ts1Value = document.getElementById("descriptionTs2").value;
+        let newData = `${data},${ts1Value}`;
+        console.log(newData);
+        var updates = {};
+        updates[`/Meals/${datum}/ts2`] = newData;
+        return firebase.database().ref().update(updates);
+
+    });
+}
+function handlesubmitformavo(e) {
+    e.preventDefault();
+
+}
+function handlesubmitformts3(e) {
+    e.preventDefault();
+    const $date = document.querySelector(`.datePicker`);
+    let datum = $date.value.toString();
+    //fetch previous data
+    const $locationOverviewOntbijt = document.querySelector(`.overviewTs3`);
+    $locationOverviewOntbijt.innerHTML = "";
+    let overviewts3URL = firebase.database().ref(`/Meals/${datum}/ts3`);
+    overviewts3URL.once(`value`, (snapshot) => {
+        const data = snapshot.val();
+        //als record al bestaat pass de data gewoon
+        console.log(data);
+        let ts3Value = document.getElementById("descriptionTs3").value;
+        let newData = `${data},${ts3Value}`;
+        console.log(newData);
+        var updates = {};
+        updates[`/Meals/${datum}/ts3`] = newData;
+        return firebase.database().ref().update(updates);
+
+    });
 
 }
 function watermin(e) {
@@ -82,7 +163,7 @@ function loadData(e) {
     //date format: 2020-12-29
     //gets amount of water
     const $locationWater = document.querySelector(`#waterTeller`);
-    $locationWater.innerHTML="";
+    $locationWater.innerHTML = "";
     let amount;
     let amountURL = firebase.database().ref(`/Days/${datum}/waterAmount`);
     amountURL.on(`value`, (snapshot) => {
@@ -102,7 +183,7 @@ function loadData(e) {
     });
     //fetch ontbijtdata
     const $locationOverviewOntbijt = document.querySelector(`.overviewOntbijt`);
-    $locationOverviewOntbijt.innerHTML="";
+    $locationOverviewOntbijt.innerHTML = "";
     let overviewOntbijtURL = firebase.database().ref(`/Meals/${datum}/ont`);
     overviewOntbijtURL.on(`value`, (snapshot) => {
         const data = snapshot.val();
@@ -126,7 +207,7 @@ function loadData(e) {
         }
     });
     const $locationOverviewTs1 = document.querySelector(`.overviewTs1`);
-    $locationOverviewTs1.innerHTML="";
+    $locationOverviewTs1.innerHTML = "";
     let overviewTs1URL = firebase.database().ref(`/Meals/${datum}/ts1`);
     overviewTs1URL.on(`value`, (snapshot) => {
         const data = snapshot.val();
@@ -150,7 +231,7 @@ function loadData(e) {
         }
     });
     const $locationOverviewMid = document.querySelector(`.overviewMid`);
-    $locationOverviewMid.innerHTML="";
+    $locationOverviewMid.innerHTML = "";
     let overviewMidURL = firebase.database().ref(`/Meals/${datum}/mid`);
     overviewMidURL.on(`value`, (snapshot) => {
         const data = snapshot.val();
@@ -220,7 +301,7 @@ function loadData(e) {
                 $locationOverviewAvo.appendChild($li);
             });
         }
-    });3
+    }); 3
     const $locationOverviewTs3 = document.querySelector(`.overviewTs3`);
     $locationOverviewTs3.innerHTML = "";
     let overviewTs3URL = firebase.database().ref(`/Meals/${datum}/ts3`);
@@ -245,10 +326,22 @@ function loadData(e) {
             });
         }
     });
-
 }
 
 const init = () => {
+    //form submits
+    const $ontbijtform = document.querySelector(`.ontbijt-form`);
+    $ontbijtform.addEventListener(`submit`, handlesubmitformOntbijt);
+    const $ts1form = document.querySelector(`.ts1-form`);
+    $ts1form.addEventListener(`submit`, handlesubmitformts1);
+    const $midform = document.querySelector(`.Mid-form`);
+    $midform.addEventListener(`submit`, handlesubmitformmid);
+    const $ts2form = document.querySelector(`.Ts2-form`);
+    $ts2form.addEventListener(`submit`, handlesubmitformts2);
+    const $avoform = document.querySelector(`.Avo-form`);
+    $avoform.addEventListener(`submit`, handlesubmitformavo);
+    const $ts3form = document.querySelector(`.Ts3-form`);
+    $ts3form.addEventListener(`submit`, handlesubmitformts3);
     //buttons shit
     const $loadbutton = document.querySelector(`#load`);
     $loadbutton.addEventListener(`click`, loadData);
