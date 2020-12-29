@@ -26,24 +26,26 @@ function watermin(e) {
         console.log(amount);
         $location.textContent = amount;
     })
-    //edit curent value
-    amount--;
-    //update value
-    var updates = {};
-    updates[`/Days/${datum}/waterAmount`] = amount;
-    return firebase.database().ref().update(updates);
+    if (amount > 0) {
+        //edit curent value
+        amount--;
+        //update value
+        var updates = {};
+        updates[`/Days/${datum}/waterAmount`] = amount;
+        return firebase.database().ref().update(updates);
+    } else {
+        console.error(`je water amount is ${amount}, je kan geen negatief amount bekomen`);
+    }
 }
 function waterplus(e) {
     e.preventDefault();
     const $date = document.querySelector(`.datePicker`);
     let datum = $date.value.toString();
     let amount;
-    let amountURL = firebase.database().ref(`/Days/${datum}/waterAmount`); 
+    let amountURL = firebase.database().ref(`/Days/${datum}/waterAmount`);
     amountURL.on(`value`, (snapshot) => {
         const data = snapshot.val();
         amount = data;
-        console.log(amount);
-        $location.textContent = amount;
     })
     amount++
     var updates = {};
@@ -69,7 +71,6 @@ function loadData(e) {
             updates[`/Days/${datum}/waterAmount`] = 0;
             $location.textContent = 0;
             return firebase.database().ref().update(updates);
-
         }
         else {
             //als record al bestaat pass de data gewoon
