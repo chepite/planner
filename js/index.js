@@ -289,7 +289,7 @@ function loadData(e) {
         }
         else {
             //als record al bestaat pass de data gewoon
-            /*let dataArray = data.toString().split(`,`);
+            let dataArray = data.toString().split(`,`);
             console.log(dataArray);
             dataArray.forEach(element => {
                 const $li = document.createElement(`li`);
@@ -297,8 +297,8 @@ function loadData(e) {
                 $p.textContent = element;
                 $li.appendChild($p);
                 $locationOverviewOntbijt.appendChild($li);
-            });*/
-            let dataArray = data.toString().split(`,`);
+            });
+            /*let dataArray = data.toString().split(`,`);
             console.log(dataArray);
             dataArray.forEach(element => {
                 const $div = document.createElement(`div`);
@@ -309,7 +309,7 @@ function loadData(e) {
                 <label for="checkbox${element}">${element}</label>
                 </li>`;
                 $locationOverviewOntbijt.appendChild($div);
-            });
+            });*/
         }
     });
     const $locationOverviewTs1 = document.querySelector(`.overviewTs1`);
@@ -433,7 +433,7 @@ function loadData(e) {
         }
     });
 }
-function getSelectedCheckboxValues(name) {
+/*function getSelectedCheckboxValues(name) {
     const checkboxes = document.querySelectorAll(`input[id="${name}"]:checked`);
     let values = [];
     checkboxes.forEach((checkbox) => {
@@ -444,7 +444,7 @@ function getSelectedCheckboxValues(name) {
 function deleteData() {
     
    
-}
+}*/
 const init = () => {
     //form submits
     const $ontbijtform = document.querySelector(`.ontbijt-form`);
@@ -460,8 +460,8 @@ const init = () => {
     const $ts3form = document.querySelector(`.Ts3-form`);
     $ts3form.addEventListener(`submit`, handlesubmitformts3);
     //buttons shit
-    const $deletebutton = document.querySelector(`#delete`);
-    $deletebutton.addEventListener(`click`, deleteData)
+    /*const $deletebutton = document.querySelector(`#delete`);
+    $deletebutton.addEventListener(`click`, deleteData);*/
     const $loadbutton = document.querySelector(`#load`);
     $loadbutton.addEventListener(`click`, loadData);
     const $minbutton = document.querySelector(`#min`);
