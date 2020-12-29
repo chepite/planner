@@ -10,9 +10,31 @@ var database = firebase.database();
 
 
 
-/*structure = {date: datum, 
+/*structure = {date:2020-05-18,
 water: int} 
+
+Meals:{  selector van een meal is de data
+    2020-05-18:{
+    ont: ...
+    ts1: ...
+    mid: ...
+    ts2: ...
+    avo: ...
+    ts3: ...
+    }
+}
 */
+function handlesubmitform(e) {
+    e.preventDefault();
+    //wat moet submit doen:
+    /*
+    1. de data weergeven in een lijst die je kan editen
+    2. de data updaten in de databse
+    3. (optioneel) de data ondereen weergeven in een tabel
+    */
+
+
+}
 function watermin(e) {
     e.preventDefault();
     const $date = document.querySelector(`.datePicker`);
@@ -58,26 +80,53 @@ function loadData(e) {
     const $date = document.querySelector(`.datePicker`);
     let datum = $date.value.toString();
     //date format: 2020-12-29
-    const $location = document.querySelector(`#waterTeller`);
     //gets amount of water
+    const $locationWater = document.querySelector(`#waterTeller`);
     let amount;
     let amountURL = firebase.database().ref(`/Days/${datum}/waterAmount`);
-
     amountURL.on(`value`, (snapshot) => {
         const data = snapshot.val();
         //als nog niet bestaat maak nieuw record aan met water 0
         if (data == null) {
             var updates = {};
             updates[`/Days/${datum}/waterAmount`] = 0;
-            $location.textContent = 0;
+            $locationWater.textContent = 0;
             return firebase.database().ref().update(updates);
         }
         else {
             //als record al bestaat pass de data gewoon
             amount = data;
-            $location.textContent = amount.toString();
+            $locationWater.textContent = amount.toString();
         }
     });
+    //fetch ontbijtdata
+    const $locationOverviewOntbijt = document.querySelector(`.overviewOntbijt`);
+    let overviewOntbijtURL = firebase.database().ref(`/Meals/${datum}/ont`);
+    overviewOntbijtURL.on(`value`, (snapshot) => {
+        const data = snapshot.val();
+        //als nog niet bestaat maak nieuw record aan met water 0
+        if (data == null) {
+            var updates = {};
+            updates[`/Meals/${datum}/ont`] = `spacefiller`;
+            $li.textContent = `spacefiller`;
+            $locationOverviewOntbijt.appendChild($li);
+            return firebase.database().ref().update(updates);
+        }
+        else {
+            //als record al bestaat pass de data gewoon
+            let dataArray = data.toString().split(`,`);
+            console.log(dataArray);
+            for (i = 0; i < dataArray.lenght; i++) {
+                const $li = document.createElement(`li`);
+                const $p = document.createElement(`p`);
+                $p.innerHTML = dataArray[i];
+                $li.appendChild($p);
+                $locationOverviewOntbijt.appendChild($li);
+            }
+        }
+    });
+
+
 }
 
 const init = () => {

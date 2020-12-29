@@ -2,78 +2,83 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/style.css">
-    <title>Planner Webapp</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Planner Webapp</title>
 </head>
 
 <body>
-    <nav class="nav">
-        <h1 class="nav__title">Food planner</h1>
-    </nav>
-    <main>
-        <input type="date" class="datePicker">
-        <input type="button" value="LOAD DATA" class="button" id="load">
-        <div class="water">
-            <input type="button" value="-" class="button" id="min">
-            <p id="waterTeller">X</p>
-            <input type="button" value="+" class="button" id="plus">
-        </div>
-        <h2>Ontbijt</h2>
-        <!--voorbeeld exercise 3 hoofdstuk 9 JS-->
-     <!--<form action="index.html" method="get" class="todo-form">
+  <nav class="nav">
+    <h1 class="nav__title">Food planner</h1>
+  </nav>
+  <main>
+    <input type="date" class="datePicker">
+    <input type="button" value="LOAD DATA" class="button" id="load">
+    <div class="water">
+      <input type="button" value="-" class="button" id="min">
+      <p id="waterTeller">X</p>
+      <input type="button" value="+" class="button" id="plus">
+    </div>
+    <div>
+      <h2>Ontbijt</h2>
+      <!--voorbeeld exercise 3 hoofdstuk 9 JS-->
+      <form action="index.html" method="get" class="ontbijt-form form">
         <label for="description">Description</label>
-        <input id="description" type="text" class="todo-form__description" name="description" size="100" required
-          placeholder="Finish exercises Development 1">
+        <input id="description" type="text" class="ontbijt-form__description" name="description" size="100" required
+          placeholder="ontbijt">
         <input type="submit" value="Add">
-      </form>-->
-        <!--items-->
-        <h2>tussendoor</h2>
+      </form>
+      <ul class="overviewOntbijt">
         
-        <!--items-->
-        <h2>middagmaal</h2>
-        <!--items-->
-        <h2>tussendoor</h2>
-        <!--items-->
-        <h2>avondmaal</h2>
-        <!--items-->
-        <h2>tussendoor</h2>
-        <!--items-->
-        
-    </main>
+      </ul>
+    </div>
+    <!--items-->
+    <h2>tussendoor</h2>
+
+    <!--items-->
+    <h2>middagmaal</h2>
+    <!--items-->
+    <h2>tussendoor</h2>
+    <!--items-->
+    <h2>avondmaal</h2>
+    <!--items-->
+    <h2>tussendoor</h2>
+    <!--items-->
+
+  </main>
 
 
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-analytics.js"></script>
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-analytics.js"></script>
 
- <!-- Add Firebase products that you want to use -->
- <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
- <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>
+  <!-- Add Firebase products that you want to use -->
+  <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>
 
- 
-<script>
-  // Your web app's Firebase configuration
-  var firebaseConfig = {
-    apiKey: "AIzaSyCj1mCRNiAWSbfMTiqLdgcYyZJJt8xPS3Y",
-    authDomain: "planner-e36e7.firebaseapp.com",
-    databaseURL: "https://planner-e36e7-default-rtdb.europe-west1.firebasedatabase.app",
-    projectId: "planner-e36e7",
-    storageBucket: "planner-e36e7.appspot.com",
-    messagingSenderId: "146313008727",
-    appId: "1:146313008727:web:190c6bf91b14abe4f83512",
-    measurementId: "G-4Q764RNT1G"
-  };
 
- // Initialize Firebase
- 
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyCj1mCRNiAWSbfMTiqLdgcYyZJJt8xPS3Y",
+      authDomain: "planner-e36e7.firebaseapp.com",
+      databaseURL: "https://planner-e36e7-default-rtdb.europe-west1.firebasedatabase.app",
+      projectId: "planner-e36e7",
+      storageBucket: "planner-e36e7.appspot.com",
+      messagingSenderId: "146313008727",
+      appId: "1:146313008727:web:190c6bf91b14abe4f83512",
+      measurementId: "G-4Q764RNT1G"
+    };
 
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
+    // Initialize Firebase
+
+
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
   </script>
-  
+
   <script src="js/index.js"></script>
 
 </body>
