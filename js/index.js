@@ -28,30 +28,30 @@ function handlesubmitformOntbijt(e) {
     const $date = document.querySelector(`.datePicker`);
     let datum = $date.value.toString();
     //fetch previous data
-    if(datum !== ``){ 
-    const $locationOverviewOntbijt = document.querySelector(`.overviewOntbijt`);
+    if (datum !== ``) {
+        const $locationOverviewOntbijt = document.querySelector(`.overviewOntbijt`);
         $locationOverviewOntbijt.innerHTML = "";//please no hackerino
-    let overviewOntbijtURL = firebase.database().ref(`/Meals/${datum}/ont`);
-    overviewOntbijtURL.once(`value`, (snapshot) => {
-        const data = snapshot.val();
-        //als record al bestaat pass de data gewoon
-        console.log(data);
-        let ontValue = document.getElementById("descriptionOntbijt").value;
-        if (data == ``) {
-            let newData = data;
-            newData = `${ontValue}`
-            console.log(newData);
-            var updates = {};
-            updates[`/Meals/${datum}/ont`] = newData;
-            return firebase.database().ref().update(updates);
-        } else {
-            let newData = `${data},${ontValue}`;
-            console.log(newData);
-            var updates = {};
-            updates[`/Meals/${datum}/ont`] = newData;
-            return firebase.database().ref().update(updates);
-        }
-    });
+        let overviewOntbijtURL = firebase.database().ref(`/Meals/${datum}/ont`);
+        overviewOntbijtURL.once(`value`, (snapshot) => {
+            const data = snapshot.val();
+            //als record al bestaat pass de data gewoon
+            console.log(data);
+            let ontValue = document.getElementById("descriptionOntbijt").value;
+            if (data == ``) {
+                let newData = data;
+                newData = `${ontValue}`;
+                console.log(newData);
+                var updates = {};
+                updates[`/Meals/${datum}/ont`] = newData;
+                return firebase.database().ref().update(updates);
+            } else {
+                let newData = `${data},${ontValue}`;
+                console.log(newData);
+                var updates = {};
+                updates[`/Meals/${datum}/ont`] = newData;
+                return firebase.database().ref().update(updates);
+            }
+        });
     }
 }
 function handlesubmitformts1(e) {
@@ -59,30 +59,29 @@ function handlesubmitformts1(e) {
     const $date = document.querySelector(`.datePicker`);
     let datum = $date.value.toString();
     //fetch previous data
-    if(datum !== ``){ 
-    const $locationOverviewOntbijt = document.querySelector(`.overviewTs1`);
+    if (datum !== ``) {
+        const $locationOverviewOntbijt = document.querySelector(`.overviewTs1`);
         $locationOverviewOntbijt.innerHTML = "";//please no hackerino
-    let overviewts1URL = firebase.database().ref(`/Meals/${datum}/ts1`);
-    overviewts1URL.once(`value`, (snapshot) => {
-        const data = snapshot.val();
-        //als record al bestaat pass de data gewoon
-        console.log(data);
-        let ts1Value = document.getElementById("descriptionTs1").value;
-        if (data == ``) {
-            let newData = `${ts1Value}`;
-            console.log(newData);
-            var updates = {};
-            updates[`/Meals/${datum}/ts1`] = newData;
-            return firebase.database().ref().update(updates);
-        } else {
-            let newData = `${data},${ts1Value}`;
-            console.log(newData);
-            var updates = {};
-            updates[`/Meals/${datum}/ts1`] = newData;
-            return firebase.database().ref().update(updates);
-        }
-
-    });
+        let overviewts1URL = firebase.database().ref(`/Meals/${datum}/ts1`);
+        overviewts1URL.once(`value`, (snapshot) => {
+            const data = snapshot.val();
+            //als record al bestaat pass de data gewoon
+            console.log(data);
+            let ts1Value = document.getElementById("descriptionTs1").value;
+            if (data == ``) {
+                let newData = `${ts1Value}`;
+                console.log(newData);
+                var updates = {};
+                updates[`/Meals/${datum}/ts1`] = newData;
+                return firebase.database().ref().update(updates);
+            } else {
+                let newData = `${data},${ts1Value}`;
+                console.log(newData);
+                var updates = {};
+                updates[`/Meals/${datum}/ts1`] = newData;
+                return firebase.database().ref().update(updates);
+            }
+        });
     }
 }
 function handlesubmitformmid(e) {
@@ -98,7 +97,7 @@ function handlesubmitformmid(e) {
             const data = snapshot.val();
             //als record al bestaat pass de data gewoon
             console.log(data);
-            
+
             if (data == ``) {
                 let midValue = document.getElementById("descriptionMid").value;
                 let newData = `${midValue}`;
@@ -114,7 +113,6 @@ function handlesubmitformmid(e) {
                 updates[`/Meals/${datum}/mid`] = newData;
                 return firebase.database().ref().update(updates);
             }
-
         });
     }
 
@@ -124,36 +122,34 @@ function handlesubmitformts2(e) {
     const $date = document.querySelector(`.datePicker`);
     let datum = $date.value.toString();
     //fetch previous data
-    if(datum !== ``){ 
-    const $locationOverviewOntbijt = document.querySelector(`.overviewTs2`);
+    if (datum !== ``) {
+        const $locationOverviewOntbijt = document.querySelector(`.overviewTs2`);
         $locationOverviewOntbijt.innerHTML = "";//please no hackerino
-    let overviewts2URL = firebase.database().ref(`/Meals/${datum}/ts2`);
-    overviewts2URL.once(`value`, (snapshot) => {
-        const data = snapshot.val();
-        //als record al bestaat pass de data gewoon
-        console.log(data);
-        if (data == ``) {
-            let ts2Value = document.getElementById("descriptionTs2").value;
-            let newData = `${ts2Value}`;
-            console.log(newData);
-            var updates = {};
-            updates[`/Meals/${datum}/ts2`] = newData;
-            return firebase.database().ref().update(updates);
-        }
-        else {
-            let ts2Value = document.getElementById("descriptionTs2").value;
-            let newData = `${data},${ts2Value}`;
-            console.log(newData);
-            var updates = {};
-            updates[`/Meals/${datum}/ts2`] = newData;
-            return firebase.database().ref().update(updates);
-        }
-
-    });
+        let overviewts2URL = firebase.database().ref(`/Meals/${datum}/ts2`);
+        overviewts2URL.once(`value`, (snapshot) => {
+            const data = snapshot.val();
+            //als record al bestaat pass de data gewoon
+            console.log(data);
+            if (data == ``) {
+                let ts2Value = document.getElementById("descriptionTs2").value;
+                let newData = `${ts2Value}`;
+                console.log(newData);
+                var updates = {};
+                updates[`/Meals/${datum}/ts2`] = newData;
+                return firebase.database().ref().update(updates);
+            }
+            else {
+                let ts2Value = document.getElementById("descriptionTs2").value;
+                let newData = `${data},${ts2Value}`;
+                console.log(newData);
+                var updates = {};
+                updates[`/Meals/${datum}/ts2`] = newData;
+                return firebase.database().ref().update(updates);
+            }
+        });
     }
 }
 function handlesubmitformavo(e) {
-    e.preventDefault();
     e.preventDefault();
     const $date = document.querySelector(`.datePicker`);
     let datum = $date.value.toString();
@@ -180,7 +176,6 @@ function handlesubmitformavo(e) {
                 updates[`/Meals/${datum}/mid`] = newData;
                 return firebase.database().ref().update(updates);
             }
-
         });
     }
 }
@@ -189,31 +184,30 @@ function handlesubmitformts3(e) {
     const $date = document.querySelector(`.datePicker`);
     let datum = $date.value.toString();
     //fetch previous data
-    if(datum !== ``){ 
-    const $locationOverviewOntbijt = document.querySelector(`.overviewTs3`);
+    if (datum !== ``) {
+        const $locationOverviewOntbijt = document.querySelector(`.overviewTs3`);
         $locationOverviewOntbijt.innerHTML = "";//please no hackerino
-    let overviewts3URL = firebase.database().ref(`/Meals/${datum}/ts3`);
-    overviewts3URL.once(`value`, (snapshot) => {
-        const data = snapshot.val();
-        //als record al bestaat pass de data gewoon
-        console.log(data);
-        if (data == ``) {
-            let ts3Value = document.getElementById("descriptionTs3").value;
-            let newData = `${ts3Value}`;
-            console.log(newData);
-            var updates = {};
-            updates[`/Meals/${datum}/ts3`] = newData;
-            return firebase.database().ref().update(updates);
-        } else {
-            let ts3Value = document.getElementById("descriptionTs3").value;
-            let newData = `${data},${ts3Value}`;
-            console.log(newData);
-            var updates = {};
-            updates[`/Meals/${datum}/ts3`] = newData;
-            return firebase.database().ref().update(updates);
-        }
-
-    });
+        let overviewts3URL = firebase.database().ref(`/Meals/${datum}/ts3`);
+        overviewts3URL.once(`value`, (snapshot) => {
+            const data = snapshot.val();
+            //als record al bestaat pass de data gewoon
+            console.log(data);
+            if (data == ``) {
+                let ts3Value = document.getElementById("descriptionTs3").value;
+                let newData = `${ts3Value}`;
+                console.log(newData);
+                var updates = {};
+                updates[`/Meals/${datum}/ts3`] = newData;
+                return firebase.database().ref().update(updates);
+            } else {
+                let ts3Value = document.getElementById("descriptionTs3").value;
+                let newData = `${data},${ts3Value}`;
+                console.log(newData);
+                var updates = {};
+                updates[`/Meals/${datum}/ts3`] = newData;
+                return firebase.database().ref().update(updates);
+            }
+        });
     }
 }
 function watermin(e) {
@@ -222,7 +216,7 @@ function watermin(e) {
     let datum = $date.value.toString();
     let amount;
     //get current value
-    let amountURL = firebase.database().ref(`/Days/${datum}/waterAmount`); /*later testday veranderen met datum uit datepicker*/
+    let amountURL = firebase.database().ref(`/Days/${datum}/waterAmount`);
     amountURL.on(`value`, (snapshot) => {
         const data = snapshot.val();
         amount = data;
