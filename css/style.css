@@ -9,6 +9,7 @@
 }
 .datePicker{
     margin:1rem;
+    padding: 1rem;
 }
 body{
     display: grid;
@@ -24,6 +25,8 @@ h2{
 .water{
     display: flex;
     justify-content:space-evenly;
+    align-items: center;
+    font-size: 2rem;
 }
 .form{
     margin: 1rem;
@@ -35,4 +38,12 @@ ul{
 }
 .form{
     padding: .5rem;
+}
+.divFlex{
+    display: flex;
+    flex-direction: row;
+    padding: .5rem;
+}
+.button{
+    padding: 1rem;
 }
