@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
   <title>Planner Webapp</title>
 </head>
 
@@ -16,95 +18,98 @@
   <main>
     <input type="date" class="datePicker">
     <input type="button" value="LOAD DATA" class="button" id="load">
+    <h2>Aantal glazen water</h2>
     <div class="water">
       <input type="button" value="-" class="button" id="min">
-      <p id="waterTeller">X</p>
+      <p id="waterTeller">?</p>
       <input type="button" value="+" class="button" id="plus">
     </div>
-    <div>
-      <h2>Ontbijt</h2>
-      <!--voorbeeld exercise 3 hoofdstuk 9 JS-->
-      <form action="index.html" method="get" class="ontbijt-form form">
-        <label for="descriptionOntbijt">Description</label>
-        <input id="descriptionOntbijt" type="text" class="ontbijt-form__description" name="description" size="100" required
-          placeholder="ontbijt">
-        <input type="submit" value="Add">
-      </form>
-      <ul class="overviewOntbijt">
-        
-      </ul>
-    </div>
-    <!--items-->
-    <div>
-      <h2>tussendoor</h2>
-      <!--voorbeeld exercise 3 hoofdstuk 9 JS-->
-      <form action="index.html" method="get" class="ts1-form form">
-        <label for="descriptionTs1">Description</label>
-        <input id="descriptionTs1" type="text" class="ts1-form__description" name="description" size="100" required
-          placeholder="tussendoortje">
-        <input type="submit" value="Add">
-      </form>
-      <ul class="overviewTs1">
-    
-      </ul>
-    </div>
+    <article class="input">
+      <div>
+        <h2>Ontbijt</h2>
+        <!--voorbeeld exercise 3 hoofdstuk 9 JS-->
+        <form action="index.html" method="get" class="ontbijt-form form">
+          <label for="descriptionOntbijt">Description</label>
+          <input id="descriptionOntbijt" type="text" class="ontbijt-form__description" name="description" size="100"
+            required placeholder="ontbijt">
+          <input type="submit" value="Add">
+        </form>
+        <ul class="overviewOntbijt">
 
-    <!--items-->
-    <div>
-      <h2>MiddagMaal</h2>
-      <!--voorbeeld exercise 3 hoofdstuk 9 JS-->
-      <form action="index.html" method="get" class="Mid-form form">
-        <label for="descriptionMid">Description</label>
-        <input id="descriptionMid" type="text" class="Mid-form__description" name="description" size="100" required
-          placeholder="Middagmaal">
-        <input type="submit" value="Add">
-      </form>
-      <ul class="overviewMid">
-    
-      </ul>
-    </div>
-    <!--items-->
-    <div>
-      <h2>Tussendoor</h2>
-      <!--voorbeeld exercise 3 hoofdstuk 9 JS-->
-      <form action="index.html" method="get" class="Ts2-form form">
-        <label for="descriptionTs2">Description</label>
-        <input id="descriptionTs2" type="text" class="Ts2-form__description" name="description" size="100" required
-          placeholder="tussendoortje">
-        <input type="submit" value="Add">
-      </form>
-      <ul class="overviewTs2">
-    
-      </ul>
-    </div>
-    <!--items-->
-    <div>
-      <h2>MiddagMaal</h2>
-      <!--voorbeeld exercise 3 hoofdstuk 9 JS-->
-      <form action="index.html" method="get" class="Avo-form form">
-        <label for="descriptionAvo">Description</label>
-        <input id="descriptionAvo" type="text" class="Avo-form__description" name="description" size="100" required
-          placeholder="Avondmaal">
-        <input type="submit" value="Add">
-      </form>
-      <ul class="overviewMid">
-    
-      </ul>
-    </div>
-    <!--items-->
-    <div>
-      <h2>Tussendoor</h2>
-      <!--voorbeeld exercise 3 hoofdstuk 9 JS-->
-      <form action="index.html" method="get" class="Ts3-form form">
-        <label for="descriptionTs3">Description</label>
-        <input id="descriptionTs3" type="text" class="Ts3-form__description" name="description" size="100" required
-          placeholder="tussendoortje">
-        <input type="submit" value="Add">
-      </form>
-      <ul class="overviewTs3">
-    
-      </ul>
-    </div>
+        </ul>
+      </div>
+      <!--items-->
+      <div>
+        <h2>Tussendoor</h2>
+        <!--voorbeeld exercise 3 hoofdstuk 9 JS-->
+        <form action="index.html" method="get" class="ts1-form form">
+          <label for="descriptionTs1">Description</label>
+          <input id="descriptionTs1" type="text" class="ts1-form__description" name="description" size="100" required
+            placeholder="tussendoortje">
+          <input type="submit" value="Add">
+        </form>
+        <ul class="overviewTs1">
+
+        </ul>
+      </div>
+
+      <!--items-->
+      <div>
+        <h2>Middagmaal</h2>
+        <!--voorbeeld exercise 3 hoofdstuk 9 JS-->
+        <form action="index.html" method="get" class="Mid-form form">
+          <label for="descriptionMid">Description</label>
+          <input id="descriptionMid" type="text" class="Mid-form__description" name="description" size="100" required
+            placeholder="Middagmaal">
+          <input type="submit" value="Add">
+        </form>
+        <ul class="overviewMid">
+
+        </ul>
+      </div>
+      <!--items-->
+      <div>
+        <h2>Tussendoor</h2>
+        <!--voorbeeld exercise 3 hoofdstuk 9 JS-->
+        <form action="index.html" method="get" class="Ts2-form form">
+          <label for="descriptionTs2">Description</label>
+          <input id="descriptionTs2" type="text" class="Ts2-form__description" name="description" size="100" required
+            placeholder="tussendoortje">
+          <input type="submit" value="Add">
+        </form>
+        <ul class="overviewTs2">
+
+        </ul>
+      </div>
+      <!--items-->
+      <div>
+        <h2>Avondmaal</h2>
+        <!--voorbeeld exercise 3 hoofdstuk 9 JS-->
+        <form action="index.html" method="get" class="Avo-form form">
+          <label for="descriptionAvo">Description</label>
+          <input id="descriptionAvo" type="text" class="Avo-form__description" name="description" size="100" required
+            placeholder="Avondmaal">
+          <input type="submit" value="Add">
+        </form>
+        <ul class="overviewMid">
+
+        </ul>
+      </div>
+      <!--items-->
+      <div>
+        <h2>Tussendoor</h2>
+        <!--voorbeeld exercise 3 hoofdstuk 9 JS-->
+        <form action="index.html" method="get" class="Ts3-form form">
+          <label for="descriptionTs3">Description</label>
+          <input id="descriptionTs3" type="text" class="Ts3-form__description" name="description" size="100" required
+            placeholder="tussendoortje">
+          <input type="submit" value="Add">
+        </form>
+        <ul class="overviewTs3">
+
+        </ul>
+      </div>
+    </article>
     <!--items-->
 
   </main>
@@ -140,6 +145,7 @@
   </script>
 
   <script src="js/index.js"></script>
+
 
 </body>
 

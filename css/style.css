@@ -3,13 +3,21 @@
     justify-content: center;
 }
 .nav__title{
-    font-family: arial;
+    font-family: 'Oswald', sans-serif;
     font-size: 3rem;
+    margin: 1rem;
 }
 .datePicker{
     margin:1rem;
 }
+body{
+    display: grid;
+    justify-content: center;
+}
 h2{
+    font-family: 'Oswald', sans-serif;
+    padding: .5rem;
+    border-bottom: .2rem black solid;
     font-size: 1.8rem;
     margin: 1rem;
 }
@@ -24,4 +32,7 @@ ul{
     margin:1rem;
     list-style-type: disc;
     padding: 1rem;
+}
+.form{
+    padding: .5rem;
 }
