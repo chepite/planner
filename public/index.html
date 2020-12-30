@@ -5,16 +5,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/4.6.1/firebase-ui-auth.css" />
-    <title>Planner Login</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+        integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+        crossorigin="anonymous" />
+    <title>Foodplanner login</title>
 </head>
 
 <body>
-    <main>
-        <h1>Login</h1>
-        <input type="email" placeholder="email..." id="email">
-        <input type="password" placeholder="password..." id="password">
-        <button onclick="login()">Log in</button>
+    <main class="container">
+        <h1 class="title">Login</h1>
+        <input type="email" placeholder="email..." id="email" class="input">
+        <input type="password" placeholder="password..." id="password" class="input">
+        <button onclick="login()" class="Inlogbutton">Log in</button>
     </main>
+    <footer class="footer">
+        <p>Webapp made by Studio Freddy</p>
+        <a href="https://www.instagram.com/studiofreddy/" target="_blank"><i class="fab fa-instagram fa-lg"></i></a>
+    </footer>
 
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>

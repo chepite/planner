@@ -8,7 +8,7 @@ var config = {
 };
 var database = firebase.database();
 //end database shit
-let userEmail=``;
+let userEmail = ``;
 /*structure = {date:2020-05-18,
 water: int} 
 
@@ -449,18 +449,18 @@ function deleteData() {
 
 const init = () => {
     //getting current user
-    
-    firebase.auth().onAuthStateChanged(function(user) {
+
+    firebase.auth().onAuthStateChanged(function (user) {
         if (user) {
-          userEmail = user.email;
-          userEmail= userEmail.substring(0, userEmail.lastIndexOf(`@`));
-          if(userEmail.indexOf(`.`) !==-1){
-            userEmailfirstHalf= userEmail.substring(0,userEmail.indexOf(`.`)); 
-            userEmailsecondHalf = userEmail.substring(userEmail.indexOf(`.`)+1);
-            userEmail = `${userEmailfirstHalf}${userEmailsecondHalf}`;
-          }
+            userEmail = user.email;
+            userEmail = userEmail.substring(0, userEmail.lastIndexOf(`@`));
+            if (userEmail.indexOf(`.`) !== -1) {
+                userEmailfirstHalf = userEmail.substring(0, userEmail.indexOf(`.`));
+                userEmailsecondHalf = userEmail.substring(userEmail.indexOf(`.`) + 1);
+                userEmail = `${userEmailfirstHalf}${userEmailsecondHalf}`;
+            }
         } else {
-         window.alert(`please contact the maker of the webapp, your email is not valid in our current system`);
+            window.alert(`please contact the maker of the webapp, your email is not valid in our current system`);
         }
     });
 
