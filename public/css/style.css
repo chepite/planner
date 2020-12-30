@@ -1,3 +1,15 @@
+html{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 60rem;
+}
 .nav{
     display: flex;
     justify-content: center;
@@ -10,11 +22,6 @@
 .datePicker{
     margin:1rem;
     padding: 1rem;
-}
-body{
-    display: grid;
-    justify-content: center;
-    
 }
 h2{
     font-family: 'Oswald', sans-serif;
@@ -48,8 +55,12 @@ ul{
 .button{
     padding: 1rem;
 }
+label{
+    margin-right: 1rem;
+}
 .description{
     padding: .5rem;
+    width: 30rem;
 }
 input[type="submit"]{
     padding: .5rem;
@@ -65,4 +76,9 @@ input[type="submit"]{
 #load{
     height: 3rem;
     width: 20rem;
+}
+form{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
