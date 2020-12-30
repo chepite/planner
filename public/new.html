@@ -17,15 +17,11 @@
 
 <body>
     <main class="container">
-        <h1 class="title">Login</h1>
+        <h1 class="title">Sign up here!</h1>
         <input type="email" placeholder="email..." id="email" class="input">
         <input type="password" placeholder="password..." id="password" class="input">
-        <a href="new.html">Nog geen account?</a>
-        <button onclick="login()" class="Inlogbutton">Log in</button>
-        <article>
-            <h2>About the foodplanner</h2>
-            <p>The foodplanner is a minimalistic and simple to use foodplanner. The foodplanner has a realtime database so your data is updated automatically</p>
-        </article>
+        <input type="password" placeholder="Repeat your password" id="passwordRetype" class="input">
+        <button onclick="newUser()" class="Inlogbutton">Sign up</button>
     </main>
     <footer class="footer">
         <p>Webapp made by Studio Freddy</p>
@@ -51,7 +47,7 @@
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
     </script>
-    <script src="js/login.js"></script>
+    <script src="js/new.js"></script>
 </body>
 
 </html>
