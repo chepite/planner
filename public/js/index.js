@@ -1,4 +1,5 @@
 //database shit
+
 var config = {
     apiKey: "AIzaSyCj1mCRNiAWSbfMTiqLdgcYyZJJt8xPS3Y",
     authDomain: "planner-e36e7.firebaseapp.com",
@@ -7,7 +8,7 @@ var config = {
 };
 var database = firebase.database();
 //end database shit
-
+let userEmail=``;
 /*structure = {date:2020-05-18,
 water: int} 
 
@@ -31,7 +32,7 @@ function handlesubmitformOntbijt(e) {
     if (datum !== ``) {
         const $locationOverviewOntbijt = document.querySelector(`.overviewOntbijt`);
         $locationOverviewOntbijt.innerHTML = "";//please no hackerino
-        let overviewOntbijtURL = firebase.database().ref(`/Meals/${datum}/ont`);
+        let overviewOntbijtURL = firebase.database().ref(`/Meals/${datum}${userEmail}/ont`);
         overviewOntbijtURL.once(`value`, (snapshot) => {
             const data = snapshot.val();
             //als record al bestaat pass de data gewoon
@@ -42,13 +43,13 @@ function handlesubmitformOntbijt(e) {
                 newData = `${ontValue}`;
                 console.log(newData);
                 var updates = {};
-                updates[`/Meals/${datum}/ont`] = newData;
+                updates[`/Meals/${datum}${userEmail}/ont`] = newData;
                 return firebase.database().ref().update(updates);
             } else {
                 let newData = `${data},${ontValue}`;
                 console.log(newData);
                 var updates = {};
-                updates[`/Meals/${datum}/ont`] = newData;
+                updates[`/Meals/${datum}${userEmail}/ont`] = newData;
                 return firebase.database().ref().update(updates);
             }
         });
@@ -62,7 +63,7 @@ function handlesubmitformts1(e) {
     if (datum !== ``) {
         const $locationOverviewOntbijt = document.querySelector(`.overviewTs1`);
         $locationOverviewOntbijt.innerHTML = "";//please no hackerino
-        let overviewts1URL = firebase.database().ref(`/Meals/${datum}/ts1`);
+        let overviewts1URL = firebase.database().ref(`/Meals/${datum}${userEmail}/ts1`);
         overviewts1URL.once(`value`, (snapshot) => {
             const data = snapshot.val();
             //als record al bestaat pass de data gewoon
@@ -72,13 +73,13 @@ function handlesubmitformts1(e) {
                 let newData = `${ts1Value}`;
                 console.log(newData);
                 var updates = {};
-                updates[`/Meals/${datum}/ts1`] = newData;
+                updates[`/Meals/${datum}${userEmail}/ts1`] = newData;
                 return firebase.database().ref().update(updates);
             } else {
                 let newData = `${data},${ts1Value}`;
                 console.log(newData);
                 var updates = {};
-                updates[`/Meals/${datum}/ts1`] = newData;
+                updates[`/Meals/${datum}${userEmail}/ts1`] = newData;
                 return firebase.database().ref().update(updates);
             }
         });
@@ -92,7 +93,7 @@ function handlesubmitformmid(e) {
     if (datum !== ``) {
         const $locationOverviewMid = document.querySelector(`.overviewMid`);
         $locationOverviewMid.innerHTML = "";//please no hackerino
-        let overviewmidURL = firebase.database().ref(`/Meals/${datum}/mid`);
+        let overviewmidURL = firebase.database().ref(`/Meals/${datum}${userEmail}/mid`);
         overviewmidURL.once(`value`, (snapshot) => {
             const data = snapshot.val();
             //als record al bestaat pass de data gewoon
@@ -103,14 +104,14 @@ function handlesubmitformmid(e) {
                 let newData = `${midValue}`;
                 console.log(newData);
                 var updates = {};
-                updates[`/Meals/${datum}/mid`] = newData;
+                updates[`/Meals/${datum}${userEmail}/mid`] = newData;
                 return firebase.database().ref().update(updates);
             } else {
                 let midValue = document.getElementById("descriptionMid").value;
                 let newData = `${data},${midValue}`;
                 console.log(newData);
                 var updates = {};
-                updates[`/Meals/${datum}/mid`] = newData;
+                updates[`/Meals/${datum}${userEmail}/mid`] = newData;
                 return firebase.database().ref().update(updates);
             }
         });
@@ -125,7 +126,7 @@ function handlesubmitformts2(e) {
     if (datum !== ``) {
         const $locationOverviewOntbijt = document.querySelector(`.overviewTs2`);
         $locationOverviewOntbijt.innerHTML = "";//please no hackerino
-        let overviewts2URL = firebase.database().ref(`/Meals/${datum}/ts2`);
+        let overviewts2URL = firebase.database().ref(`/Meals/${datum}${userEmail}/ts2`);
         overviewts2URL.once(`value`, (snapshot) => {
             const data = snapshot.val();
             //als record al bestaat pass de data gewoon
@@ -135,7 +136,7 @@ function handlesubmitformts2(e) {
                 let newData = `${ts2Value}`;
                 console.log(newData);
                 var updates = {};
-                updates[`/Meals/${datum}/ts2`] = newData;
+                updates[`/Meals/${datum}${userEmail}/ts2`] = newData;
                 return firebase.database().ref().update(updates);
             }
             else {
@@ -143,7 +144,7 @@ function handlesubmitformts2(e) {
                 let newData = `${data},${ts2Value}`;
                 console.log(newData);
                 var updates = {};
-                updates[`/Meals/${datum}/ts2`] = newData;
+                updates[`/Meals/${datum}${userEmail}/ts2`] = newData;
                 return firebase.database().ref().update(updates);
             }
         });
@@ -157,7 +158,7 @@ function handlesubmitformavo(e) {
     if (datum !== ``) {
         const $locationOverviewAvo = document.querySelector(`.overviewAvo`);
         $locationOverviewAvo.innerHTML = "";//please no hackerino
-        let overviewavoURL = firebase.database().ref(`/Meals/${datum}/avo`);
+        let overviewavoURL = firebase.database().ref(`/Meals/${datum}${userEmail}/avo`);
         overviewavoURL.once(`value`, (snapshot) => {
             const data = snapshot.val();
             //als record al bestaat pass de data gewoon
@@ -167,13 +168,13 @@ function handlesubmitformavo(e) {
                 let newData = `${avoValue}`;
                 console.log(newData);
                 var updates = {};
-                updates[`/Meals/${datum}/avo`] = newData;
+                updates[`/Meals/${datum}${userEmail}/avo`] = newData;
                 return firebase.database().ref().update(updates);
             } else {
                 let newData = `${data},${avoValue}`;
                 console.log(newData);
                 var updates = {};
-                updates[`/Meals/${datum}/mid`] = newData;
+                updates[`/Meals/${datum}${userEmail}/mid`] = newData;
                 return firebase.database().ref().update(updates);
             }
         });
@@ -187,7 +188,7 @@ function handlesubmitformts3(e) {
     if (datum !== ``) {
         const $locationOverviewOntbijt = document.querySelector(`.overviewTs3`);
         $locationOverviewOntbijt.innerHTML = "";//please no hackerino
-        let overviewts3URL = firebase.database().ref(`/Meals/${datum}/ts3`);
+        let overviewts3URL = firebase.database().ref(`/Meals/${datum}${userEmail}/ts3`);
         overviewts3URL.once(`value`, (snapshot) => {
             const data = snapshot.val();
             //als record al bestaat pass de data gewoon
@@ -197,14 +198,14 @@ function handlesubmitformts3(e) {
                 let newData = `${ts3Value}`;
                 console.log(newData);
                 var updates = {};
-                updates[`/Meals/${datum}/ts3`] = newData;
+                updates[`/Meals/${datum}${userEmail}/ts3`] = newData;
                 return firebase.database().ref().update(updates);
             } else {
                 let ts3Value = document.getElementById("descriptionTs3").value;
                 let newData = `${data},${ts3Value}`;
                 console.log(newData);
                 var updates = {};
-                updates[`/Meals/${datum}/ts3`] = newData;
+                updates[`/Meals/${datum}${userEmail}/ts3`] = newData;
                 return firebase.database().ref().update(updates);
             }
         });
@@ -216,7 +217,7 @@ function watermin(e) {
     let datum = $date.value.toString();
     let amount;
     //get current value
-    let amountURL = firebase.database().ref(`/Days/${datum}/waterAmount`);
+    let amountURL = firebase.database().ref(`/Days/${datum}${userEmail}/waterAmount`);
     amountURL.on(`value`, (snapshot) => {
         const data = snapshot.val();
         amount = data;
@@ -228,7 +229,7 @@ function watermin(e) {
         amount--;
         //update value
         var updates = {};
-        updates[`/Days/${datum}/waterAmount`] = amount;
+        updates[`/Days/${datum}${userEmail}/waterAmount`] = amount;
         return firebase.database().ref().update(updates);
     } else {
         console.error(`je water amount is ${amount}, je kan geen negatief amount bekomen`);
@@ -239,14 +240,14 @@ function waterplus(e) {
     const $date = document.querySelector(`.datePicker`);
     let datum = $date.value.toString();
     let amount;
-    let amountURL = firebase.database().ref(`/Days/${datum}/waterAmount`);
+    let amountURL = firebase.database().ref(`/Days/${datum}${userEmail}/waterAmount`);
     amountURL.on(`value`, (snapshot) => {
         const data = snapshot.val();
         amount = data;
     })
     amount++
     var updates = {};
-    updates[`/Days/${datum}/waterAmount`] = amount;
+    updates[`/Days/${datum}${userEmail}/waterAmount`] = amount;
     return firebase.database().ref().update(updates);
 }
 
@@ -259,13 +260,13 @@ function loadData(e) {
     const $locationWater = document.querySelector(`#waterTeller`);
     $locationWater.innerHTML = "";//please no hackerino
     let amount;
-    let amountURL = firebase.database().ref(`/Days/${datum}/waterAmount`);
+    let amountURL = firebase.database().ref(`/Days/${datum}${userEmail}/waterAmount`);
     amountURL.on(`value`, (snapshot) => {
         const data = snapshot.val();
         //als nog niet bestaat maak nieuw record aan met water 0
         if (data == null) {
             var updates = {};
-            updates[`/Days/${datum}/waterAmount`] = 0;
+            updates[`/Days/${datum}${userEmail}/waterAmount`] = 0;
             $locationWater.textContent = 0;
             return firebase.database().ref().update(updates);
         }
@@ -278,13 +279,13 @@ function loadData(e) {
     //fetch ontbijtdata
     const $locationOverviewOntbijt = document.querySelector(`.overviewOntbijt`);
     $locationOverviewOntbijt.innerHTML = "";//please no hackerino
-    let overviewOntbijtURL = firebase.database().ref(`/Meals/${datum}/ont`);
+    let overviewOntbijtURL = firebase.database().ref(`/Meals/${datum}${userEmail}/ont`);
     overviewOntbijtURL.on(`value`, (snapshot) => {
         const data = snapshot.val();
         //als nog niet bestaat maak nieuw record aan met water 0
         if (data == null) {
             var updates = {};
-            updates[`/Meals/${datum}/ont`] = ``;
+            updates[`/Meals/${datum}${userEmail}/ont`] = ``;
             return firebase.database().ref().update(updates);
         }
         else {
@@ -314,13 +315,13 @@ function loadData(e) {
     });
     const $locationOverviewTs1 = document.querySelector(`.overviewTs1`);
     $locationOverviewTs1.innerHTML = "";//please no hackerino
-    let overviewTs1URL = firebase.database().ref(`/Meals/${datum}/ts1`);
+    let overviewTs1URL = firebase.database().ref(`/Meals/${datum}${userEmail}/ts1`);
     overviewTs1URL.on(`value`, (snapshot) => {
         const data = snapshot.val();
         //als nog niet bestaat maak nieuw record aan met water 0
         if (data == null) {
             var updates = {};
-            updates[`/Meals/${datum}/ts1`] = ``;
+            updates[`/Meals/${datum}${userEmail}/ts1`] = ``;
             return firebase.database().ref().update(updates);
         }
         else {
@@ -338,13 +339,13 @@ function loadData(e) {
     });
     const $locationOverviewMid = document.querySelector(`.overviewMid`);
     $locationOverviewMid.innerHTML = ""; //please no hackerino
-    let overviewMidURL = firebase.database().ref(`/Meals/${datum}/mid`);
+    let overviewMidURL = firebase.database().ref(`/Meals/${datum}${userEmail}/mid`);
     overviewMidURL.on(`value`, (snapshot) => {
         const data = snapshot.val();
         //als nog niet bestaat maak nieuw record aan met water 0
         if (data == null) {
             var updates = {};
-            updates[`/Meals/${datum}/mid`] = ``;
+            updates[`/Meals/${datum}${userEmail}/mid`] = ``;
             return firebase.database().ref().update(updates);
         }
         else {
@@ -362,13 +363,13 @@ function loadData(e) {
     });
     const $locationOverviewTs2 = document.querySelector(`.overviewTs2`);
     $locationOverviewTs2.innerHTML = "";//please no hackerino
-    let overviewTs2URL = firebase.database().ref(`/Meals/${datum}/ts2`);
+    let overviewTs2URL = firebase.database().ref(`/Meals/${datum}${userEmail}/ts2`);
     overviewTs2URL.on(`value`, (snapshot) => {
         const data = snapshot.val();
         //als nog niet bestaat maak nieuw record aan met water 0
         if (data == null) {
             var updates = {};
-            updates[`/Meals/${datum}/ts2`] = ``;
+            updates[`/Meals/${datum}${userEmail}/ts2`] = ``;
             return firebase.database().ref().update(updates);
         }
         else {
@@ -386,13 +387,13 @@ function loadData(e) {
     });
     const $locationOverviewAvo = document.querySelector(`.overviewAvo`);
     $locationOverviewAvo.innerHTML = "";//please no hackerino
-    let overviewAvoURL = firebase.database().ref(`/Meals/${datum}/avo`);
+    let overviewAvoURL = firebase.database().ref(`/Meals/${datum}${userEmail}/avo`);
     overviewAvoURL.on(`value`, (snapshot) => {
         const data = snapshot.val();
         //als nog niet bestaat maak nieuw record aan met water 0
         if (data == null) {
             var updates = {};
-            updates[`/Meals/${datum}/avo`] = ``;
+            updates[`/Meals/${datum}${userEmail}/avo`] = ``;
             return firebase.database().ref().update(updates);
         }
         else {
@@ -410,13 +411,13 @@ function loadData(e) {
     }); 3
     const $locationOverviewTs3 = document.querySelector(`.overviewTs3`);
     $locationOverviewTs3.innerHTML = "";//please no hackerino
-    let overviewTs3URL = firebase.database().ref(`/Meals/${datum}/ts3`);
+    let overviewTs3URL = firebase.database().ref(`/Meals/${datum}${userEmail}/ts3`);
     overviewTs3URL.on(`value`, (snapshot) => {
         const data = snapshot.val();
         //als nog niet bestaat maak nieuw record aan met water 0
         if (data == null) {
             var updates = {};
-            updates[`/Meals/${datum}/ts3`] = ``;
+            updates[`/Meals/${datum}${userEmail}/ts3`] = ``;
             return firebase.database().ref().update(updates);
         }
         else {
@@ -445,7 +446,25 @@ function deleteData() {
     
    
 }*/
+
 const init = () => {
+    //getting current user
+    
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+          userEmail = user.email;
+          userEmail= userEmail.substring(0, userEmail.lastIndexOf(`@`));
+          if(userEmail.indexOf(`.`) !==-1){
+            userEmailfirstHalf= userEmail.substring(0,userEmail.indexOf(`.`)); 
+            userEmailsecondHalf = userEmail.substring(userEmail.indexOf(`.`)+1);
+            userEmail = `${userEmailfirstHalf}${userEmailsecondHalf}`;
+          }
+          console.log(userEmail);
+        } else {
+          console.log(`no user found`);
+        }
+    });
+
     //form submits
     const $ontbijtform = document.querySelector(`.ontbijt-form`);
     $ontbijtform.addEventListener(`submit`, handlesubmitformOntbijt);
