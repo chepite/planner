@@ -459,9 +459,8 @@ const init = () => {
             userEmailsecondHalf = userEmail.substring(userEmail.indexOf(`.`)+1);
             userEmail = `${userEmailfirstHalf}${userEmailsecondHalf}`;
           }
-          console.log(userEmail);
         } else {
-          console.log(`no user found`);
+         window.alert(`please contact the maker of the webapp, your email is not valid in our current system`);
         }
     });
 
