@@ -1,4 +1,7 @@
-function login() {
+function login(e) {
+    e.preventDefault();
+    console.log(`werkt`)
+    
     const user = document.getElementById("email").value;
     const password = document.getElementById("password").value;
     firebase.auth().signInWithEmailAndPassword(user, password)
@@ -12,4 +15,10 @@ function login() {
             window.alert(`${errorCode}: ${errorMessage}`)
         });
 }
+
+const init = () =>{
+    const $loginbutton = document.querySelector(`.Inlogbutton`);
+    $loginbutton.addEventListener(`click`, login);
+}
+init();
 
