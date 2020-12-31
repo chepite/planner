@@ -1,3 +1,46 @@
+@media screen and (max-width: 450px){
+    .nav{
+        text-justify: center;
+    }
+    main{
+        height:100%;
+        width: 25rem;
+    }
+    h2{
+        text-align: center;
+    }
+    .datePicker{
+        width: 50%;
+    }
+
+    .dateDiv{
+        display: flex;
+        flex-direction: column;
+        margin: 2rem;
+    }
+    .form .description{
+        width: 75%;;
+    }
+    .form label{
+        margin: .5rem;
+        font-size: 1.3rem;
+    }
+    input[type="submit"]{
+        margin: 1rem;
+    }
+    .form{
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+    }
+    #load{
+        width:25%;
+    }
+    .input >div>ul{
+        justify-self: center;
+    }
+
+}
 html{
     display: flex;
     align-content: center;
@@ -47,11 +90,11 @@ ul{
 .form{
     padding: .5rem;
 }
-.divFlex{
+/* .divFlex{
     display: flex;
     flex-direction: row;
     padding: .5rem;
-}
+} */
 .button{
     padding: 1rem;
 }
@@ -71,7 +114,6 @@ input[type="submit"]{
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    
 }
 #load{
     height: 3rem;
@@ -82,3 +124,5 @@ form{
     flex-direction: row;
     align-items: center;
 }
+
+
