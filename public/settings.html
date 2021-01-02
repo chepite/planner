@@ -15,5 +15,28 @@
         <a href="app.html"><i class="fas fa-reply fa-lg"></i></a>
     <h1 class="nav__title">Settings</h1>
     </nav>
+    <main>
+        <input type="button" value="Log out" class="button" id="logout">
+    </main>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-auth.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyCj1mCRNiAWSbfMTiqLdgcYyZJJt8xPS3Y",
+            authDomain: "planner-e36e7.firebaseapp.com",
+            databaseURL: "https://planner-e36e7-default-rtdb.europe-west1.firebasedatabase.app",
+            projectId: "planner-e36e7",
+            storageBucket: "planner-e36e7.appspot.com",
+            messagingSenderId: "146313008727",
+            appId: "1:146313008727:web:190c6bf91b14abe4f83512",
+            measurementId: "G-4Q764RNT1G"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
+    <script src="js/logout.js"></script>
 </body>
 </html>
