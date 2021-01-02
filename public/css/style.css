@@ -1,6 +1,16 @@
 @media screen and (max-width: 450px){
     .nav{
-        text-justify: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+    .fas{
+        color: black;
+        transition: transform .6s;
+    }
+    .fas:active{
+        transform: rotate(90deg);
     }
     main{
         height:100%;
@@ -55,7 +65,18 @@ body{
 }
 .nav{
     display: flex;
-    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+}
+.nav a{
+    margin-left: 4rem;
+}
+.fas{
+    color: black;
+    transition: transform .6s;
+}
+.fas:hover{
+    transform: rotate(90deg);
 }
 .nav__title{
     font-family: 'Oswald', sans-serif;
